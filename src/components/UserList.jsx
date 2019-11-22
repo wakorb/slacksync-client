@@ -7,7 +7,6 @@ const UserList = props => {
 
   return (
     <>
-      (
       {users &&
         users.map(user => {
           return <User user={user} />;
@@ -21,7 +20,7 @@ UserList.propTypes = {
 };
 
 UserList.defaultProps = {
-  user: []
+  users: []
 };
 
 export default UserList;

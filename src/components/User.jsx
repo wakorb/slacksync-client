@@ -4,7 +4,14 @@ import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles({
   root: {
-    display: "flex"
+    display: "flex",
+    width: 300,
+    margin: "10px 0px",
+    border: "1px solid black"
+  },
+  userName: {
+    lineHeight: "48px",
+    marginLeft: 10
   }
 });
 
@@ -18,8 +25,8 @@ const User = props => {
   if (user) {
     render = (
       <div className={classes.root}>
-        <img src={user.image_32} />
-        <div>{user.name}</div>
+        <img src={user.profile.image_48} />
+        <div className={classes.userName}>{user.name}</div>
       </div>
     );
   }
