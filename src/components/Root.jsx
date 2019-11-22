@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import UserList from "./UserList";
-import Instance from "../util/AxiosUtil";
+import Instance from "../utils/AxiosUtil";
 
 const Root = () => {
   const [users, setUsers] = useState([]);
