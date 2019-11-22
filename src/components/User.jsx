@@ -1,0 +1,80 @@
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/styles";
+
+const useStyles = makeStyles({
+  root: {
+    display: "flex"
+  }
+});
+
+const User = props => {
+  const { user } = props;
+
+  const classes = useStyles();
+
+  let render = null;
+
+  if (user) {
+    render = (
+      <div className={classes.root}>
+        <img src={user.image_32} />
+        <div>{user.name}</div>
+      </div>
+    );
+  }
+
+  return render;
+};
+
+User.propTypes = {
+  user: PropTypes.instanceOf(Object)
+};
+
+User.defaultProps = {
+  user: {}
+};
+
+export default User;
+
+// const userSchema = {
+//     id: { type: String, unique: true },
+//     team_id: String,
+//     name: String,
+//     deleted: Boolean,
+//     color: String,
+//     real_name: String,
+//     tz: String,
+//     tz_label: String,
+//     tz_offset: Number,
+//     profile: {
+//       avatar_hash: String,
+//       status_text: String,
+//       status_emoji: String,
+//       status_expiration: Date,
+//       real_name: String,
+//       display_name: String,
+//       real_name_normalized: String,
+//       display_name_normalized: String,
+//       email: String,
+//       image_original: String,
+//       image_24: String,
+//       image_32: String,
+//       image_48: String,
+//       image_72: String,
+//       image_192: String,
+//       image_512: String,
+//       team: String,
+//     },
+//     is_admin: Boolean,
+//     is_owner: Boolean,
+//     is_primary_owner: Boolean,
+//     is_restricted: Boolean,
+//     is_ultra_restricted: Boolean,
+//     is_bot: Boolean,
+//     is_stranger: Boolean,
+//     updated: Date,
+//     is_app_user: Boolean,
+//     has_2fa: Boolean,
+//     locale: String,
+//   };
