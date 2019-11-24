@@ -21,7 +21,10 @@ const createSSEChannel = uri => {
 };
 
 function* fetchUsersSSE() {
-  const channel = yield call(createSSEChannel, "http://localhost:3002/users");
+  const channel = yield call(
+    createSSEChannel,
+    "http://https://workos-slacksync.herokuapp.com/users"
+  );
 
   while (true) {
     try {
