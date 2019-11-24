@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/styles";
 
 import UserList from "./UserList";
-import Instance from "../utils/AxiosUtil";
 
 const useStyles = makeStyles({
   root: {
@@ -17,23 +17,16 @@ const useStyles = makeStyles({
 
 const Root = () => {
   const classes = useStyles();
-  const [users, setUsers] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    Instance.axiosInstance()
-      .get("/users")
-      .then(response => {
-        setUsers(response.data);
-      })
-      .catch(error => {
-        console.log(`error - ${error}`);
-      });
+    dispatch({ type: "GET_USERS" });
   }, []);
 
   return (
     <div className={classes.root}>
       <div className={classes.welcome}>Welcome to WorkOS SlackSync!</div>
-      <UserList users={users} />
+      <UserList />
     </div>
   );
 };

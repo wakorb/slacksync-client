@@ -1,26 +1,18 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 import User from "./User";
 
 const UserList = props => {
-  const { users } = props;
+  const userIds = useSelector(state => state.users.allIds);
 
   return (
     <>
-      {users &&
-        users.map(user => {
-          return <User user={user} />;
+      {userIds &&
+        userIds.map(userId => {
+          return <User userId={userId} />;
         })}
     </>
   );
-};
-
-UserList.propTypes = {
-  users: PropTypes.instanceOf(Array)
-};
-
-UserList.defaultProps = {
-  users: []
 };
 
 export default UserList;

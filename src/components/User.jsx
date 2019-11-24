@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/styles";
 
@@ -16,9 +17,10 @@ const useStyles = makeStyles({
 });
 
 const User = props => {
-  const { user } = props;
+  const { userId } = props;
 
   const classes = useStyles();
+  const user = useSelector(state => state.users.byId[userId]);
 
   let render = null;
 
@@ -27,6 +29,7 @@ const User = props => {
       <div className={classes.root}>
         <img src={user.profile.image_48} />
         <div className={classes.userName}>{user.name}</div>
+        <div className={classes.userName}>{user.profile.status_text}</div>
       </div>
     );
   }
@@ -35,11 +38,7 @@ const User = props => {
 };
 
 User.propTypes = {
-  user: PropTypes.instanceOf(Object)
-};
-
-User.defaultProps = {
-  user: {}
+  userId: PropTypes.string.isRequired
 };
 
 export default User;
