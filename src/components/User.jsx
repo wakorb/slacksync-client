@@ -20,7 +20,7 @@ const User = props => {
   const { userId } = props;
 
   const classes = useStyles();
-  const user = useSelector(state => state.users.byId[userId]);
+  const user = useSelector(state => state.users.users.byId[userId]);
 
   let render = null;
 

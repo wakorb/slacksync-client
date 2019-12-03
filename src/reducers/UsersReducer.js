@@ -14,7 +14,7 @@ const users = (state = defaultState, action) => {
 
       Object.assign(newById, state.users.byId);
 
-      const users = JSON.parse(action.response);
+      const users = action.response;
 
       users.forEach(user => {
         if (!(user.id in newById)) {

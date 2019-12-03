@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/styles";
 
-import UserList from "./UserList";
+import ChannelList from "./ChannelList";
 
 const useStyles = makeStyles({
   root: {
@@ -21,12 +21,13 @@ const Root = () => {
 
   useEffect(() => {
     dispatch({ type: "GET_USERS" });
+    dispatch({ type: "GET_CHANNELS" });
   }, []);
 
   return (
     <div className={classes.root}>
       <div className={classes.welcome}>Welcome to WorkOS SlackSync!</div>
-      <UserList />
+      <ChannelList />
     </div>
   );
 };
